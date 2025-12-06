@@ -1,0 +1,9 @@
+openai
+langchain
+langchain-community
+langchain-openai
+pandas
+sqlite3-binary (or use Python's built-in sqlite3)
+SQLAlchemy
+tavily-python (or serpapi / bing-search depending on choice)
+python-dotenv
