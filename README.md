@@ -587,18 +587,3 @@ The ReAct agent then:
 - **API costs:**  
   GitHub Models, Gemini, and Tavily may incur usage costs depending on your quota/plan.
 
----
-
-## ✅ Assignment Checklist Mapping
-
-- **1. Convert CSVs to SQLite DBs**  
-  ✔️ Implemented in `scripts/create_databases.py` and `databases/` folder.
-
-- **2. Build DB‑specific Agents (Tools)**  
-  ✔️ `HeartDiseaseDBTool`, `CancerDBTool`, `DiabetesDBTool` in `main.py` using agents from `agents/db_agents.py`.
-
-- **3. Add a Web Search Tool**  
-  ✔️ `MedicalWebSearchTool` via Tavily in `agents/web_search_tool.py`.
-
-- **4. Main AI Agent Logic**  
-  ✔️ Implemented in `main.py` using `create_react_agent` (LangGraph) + tools; routes questions to the proper tool based on content and descriptions.
