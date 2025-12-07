@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from langchain_community.utilities import SQLDatabase
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.agent_toolkits.sql.base import create_sql_agent
+from typing import Any
 
 # Add parent directory to path to import llm_fallback
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -42,5 +43,25 @@ def get_cancer_agent():
 
 def get_diabetes_agent():
     return _make_sql_agent("diabetes.db")
+
+
+# Simple helper functions for OpenAI Assistants tools
+
+def query_heart_db(question: str) -> str:
+    agent = get_heart_agent()
+    result: Any = agent.invoke({"input": question})
+    return result.get("output", str(result))
+
+
+def query_cancer_db(question: str) -> str:
+    agent = get_cancer_agent()
+    result: Any = agent.invoke({"input": question})
+    return result.get("output", str(result))
+
+
+def query_diabetes_db(question: str) -> str:
+    agent = get_diabetes_agent()
+    result: Any = agent.invoke({"input": question})
+    return result.get("output", str(result))
 
 
